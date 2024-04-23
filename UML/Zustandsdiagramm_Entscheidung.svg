@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="315" height="176">
+    <defs>
+        <!-- A marker to be used as an arrowhead -->
+        <marker id="arrow"
+            viewBox="0 0 10 10"
+            refX="5" refY="5"
+            markerWidth="6" markerHeight="6"
+            orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" />
+        </marker>
+    </defs>
+    <line x1="10" y1="60" x2="92" y2="60" stroke="#000" stroke-width="5" marker-end="url(#arrow)" />
+    <path d="M110,60 160,10 210,60 160,110 Z" stroke="#000" stroke-width="5" fill="transparent" />
+    <line x1="212" y1="60" x2="300" y2="60" stroke="#000" stroke-width="5" marker-end="url(#arrow)" />
+    <path d="M160,110 160,160 300,160" stroke="#000" stroke-width="5" fill="transparent" marker-end="url(#arrow)" />
+</svg>
