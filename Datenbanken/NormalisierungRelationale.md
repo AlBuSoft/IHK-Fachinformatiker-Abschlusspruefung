@@ -1,9 +1,22 @@
 # Normalisieren von Relationalen Datenbanken
-- [Normalform 1](#normalform-1)
-- [Normalform 2](#normalform-2)
-- [Normalform 3](#normalform-3)
+- [Kurzerklärung](#kurzerklärung)
+- [Beispielaufgabe](#beispiel-aufgabentabelle)
+- [Normalform 1 (1NF)](#normalform-1)
+    - [Erklärung](#erklärung)
+    - [Beispiel](#beispiel)
+- [Normalform 2 (2NF)](#normalform-2)
+    - [Erklärung](#erklc3a4rung-1)
+    - [Beispiel](#beispiel-1)
+- [Normalform 3 (3NF)](#normalform-3)
+    - [Erklärung](#erklc3a4rung-2)
+    - [Beispiel](#beispiel-2)
+
+## Kurzerklärung
+Die Normalformen der Datenbankmodellierung dienen dazu, Redundanzen zu vermeiden und die Datenintegrität zu verbessern. Die Normalisierung hilft dabei, Datenanomalien zu vermeiden, die Datenkonsistenz zu verbessern und die Effizienz bei Abfragen und Aktuallisierungen zu erhöhen.
 
 ## Beispiel (Aufgabentabelle)
+Hier wird eine Beispielaufgabentabelle gezeigt, die in den folgenden erklärungen der drei Normalformen aufgelöst und verwendet wird.
+
 |KundenNr|Name|Adresse|BestellNr|Bestelldatum|ArtikelNr|Artikelbezeichnung|Menge|Preis|Artikelgruppe|Rabatt
 |-|-|-|-|-|-|-|-|-|-|-
 |1|Klaus Huber|Berlinerstr. 1, 49377 Vechta|23|06.09.2024|1|Fernseher|1|799|Elektronik|10%
@@ -12,24 +25,23 @@
 |3|Jens König|Eichenweg 43, 12433 Berlin|99|09.09.2024|5|Hundefutter|1|49|Tiernahrung|0%
 
 ## Normalform 1
-### Beispiel
-<style>
-.tableExampleRed {
-    color: #f00;
-}
-</style>
-Primärschlüssel <span class="tableExampleRed">rot</span> markiert
+### Erklärung
+Elimierung von Duplikaten und Gewährleistung, dass jede Spalte nur atomare (nicht teilbare) Werte enthält. Jede Spalte sollte nur einen Wert enthalten (keine Mengen oder Listen von Werten).
 
+### Beispiel
 |KundenNr|Name|Straße|PLZ|Ort|BestellNr|Bestelldatum|ArtikelNr|Artikelbezeichnung|Menge|Preis|Artikelgruppe|Rabatt
 |-|-|-|-|-|-|-|-|-|-|-|-|-
-|<span class="tableExampleRed">1</span>|Klaus Huber|Berlinerstr. 1|49377|Vechta|<span class="tableExampleRed">23</span>|06.09.2024|<span class="tableExampleRed">1</span>|Fernseher|1|799|Elektronik|10%
-|<span class="tableExampleRed">2</span>|Hans Meier|Goethestr. 32|54434|Köln|<span class="tableExampleRed">42</span>|07.09.2024|<span class="tableExampleRed">2</span>|Monitor|2|199|Elektronik|10%
-|<span class="tableExampleRed">2</span>|Hans Meier|Goethestr. 32|54434|Köln|<span class="tableExampleRed">42</span>|07.09.2024|<span class="tableExampleRed">3</span>|Tastertur|1|39|Peripherie|10%
-|<span class="tableExampleRed">2</span>|Hans Meier|Goethestr. 32|54434|Köln|<span class="tableExampleRed">42</span>|07.09.2024|<span class="tableExampleRed">1</span>|Fernseher|1|799|Elektronik|10%
-<span class="tableExampleRed">1</span>|Klaus Huber|Berlinerstr. 1|49377|Vechta|<span class="tableExampleRed">78</span>|08.09.2024|<span class="tableExampleRed">4</span>|Maus|1|19|Tiernahrung|10%
-|<span class="tableExampleRed">3</span>|Jens König|Eichenweg 43|12433|Berlin|<span class="tableExampleRed">99</span>|09.09.2024|<span class="tableExampleRed">5</span>|Hundefutter|1|49|Tiernahrung|0%
+|1|Klaus Huber|Berlinerstr. 1|49377|Vechta|23|06.09.2024|1|Fernseher|1|799|Elektronik|10%
+|2|Hans Meier|Goethestr. 32|54434|Köln|42|07.09.2024|2|Monitor|2|199|Elektronik|10%
+|2|Hans Meier|Goethestr. 32|54434|Köln|42|07.09.2024|3|Tastertur|1|39|Peripherie|10%
+|2|Hans Meier|Goethestr. 32|54434|Köln|42|07.09.2024|1|Fernseher|1|799|Elektronik|10%
+1|Klaus Huber|Berlinerstr. 1|49377|Vechta|78|08.09.2024|4|Maus|1|19|Tiernahrung|10%
+|3|Jens König|Eichenweg 43|12433|Berlin|99|09.09.2024|5|Hundefutter|1|49|Tiernahrung|0%
 
 ## Normalform 2
+### Erklärung
+Eliminierung von Redundanzen, die durch funktionale Abhängigkeit von einem Teil eines zusammengesetzten Primärschlüssels entstehen. Die Tabelle muss 1NF sein, und jedes Nicht-Schlüsselattribut muss voll funktional abhängig von jedem Primärschlüssel der Tabelle sein. Das bedeutet, Nicht-Schlüsselattribute dürfen nur von dem gesamten Primärschlüssel abhängen und nicht von Teilen davon.
+
 ### Beispiel
 #### Tabelle Kunde:
 |KundenNr|Nachname|Vorname|Straße|PLZ|Ort
@@ -66,6 +78,9 @@ Primärschlüssel <span class="tableExampleRed">rot</span> markiert
 |5|Hundefutter|49|Tiernahrung|0%
 
 ## Normalform 3
+### Erklärung
+Beseitigung von Abhängigkeiten zwischen Nicht-Schlüsselattributen. Die Tabelle muss in 2NF sein, und alle Nicht-Schlüsselattribute müssen direkt von den Primärschlüsseln abhängen, nicht von anderen Nicht-Schlüsselattributen (keine transitiven Abhängigkeiten).
+
 ### Beispiel
 #### Tabelle Artikelgruppe:
 |ArtikelgruppeNr|Name|Rabatt
