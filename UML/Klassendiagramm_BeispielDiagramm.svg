@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="195">
+    <style>
+        .text {
+            fill: #fff;
+            font: 14px sans-serif;
+        }
+    </style>
+    <rect x="1" y="1" width="298" height="193" fill="transparent" stroke="#fff" stroke-width="2"/>
+    <text x="100" y="23" class="text">{Klassenname}</text>
+    <line x1="1" y1="40" x2="300" y2="40" stroke="#fff" stroke-width="2"/>
+    <text x="10" y="63" class="text">- Marke: string</text>
+    <text x="10" y="83" class="text">- Typ: string</text>
+    <text x="10" y="103" class="text"># Kilometerstand: uint { >= 0 }</text>
+    <line x1="1" y1="115" x2="300" y2="115" stroke="#fff" stroke-width="2"/>
+    <text x="10" y="138" class="text">+ GetMarke(): string</text>
+    <text x="10" y="158" class="text">+ GetTyp(): string</text>
+    <text x="10" y="178" class="text">+ SetKilometerstand(km: uint): void</text>
+</svg>

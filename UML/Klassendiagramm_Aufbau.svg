@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="160">
+    <style>
+        .text {
+            fill: #fff;
+            font: 14px sans-serif;
+        }
+    </style>
+    <rect x="1" y="1" width="298" height="158" fill="transparent" stroke="#fff" stroke-width="2"/>
+    <text x="100" y="23" class="text">{Klassenname}</text>
+    <line x1="1" y1="40" x2="300" y2="40" stroke="#fff" stroke-width="2"/>
+    <text x="10" y="63" class="text">- {Eigenschaftenname}: {Datentyp}</text>
+    <text x="10" y="83" class="text">...</text>
+    <line x1="1" y1="100" x2="300" y2="100" stroke="#fff" stroke-width="2"/>
+    <text x="10" y="123" class="text">- {Eigenschaftenname}: {Datentyp}</text>
+    <text x="10" y="143" class="text">...</text>
+</svg>
