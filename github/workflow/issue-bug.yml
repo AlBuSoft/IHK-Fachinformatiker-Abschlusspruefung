@@ -1,0 +1,27 @@
+name: Fehler gefunden
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 'Kurzer Titel'
+        required: true
+        type: string
+      body:
+        description: 'Beschreibung des Fehlers'
+        required: true
+        type: string
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Erstelle Issue
+      uses: octokit/request-action@v2.x
+      with:
+        route: POST /repos/${{ github.repository }}/issues
+        title: ${{ github.event.inputs.title }}
+        body: ${{ github.event.inputs.title }}
+      env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
