@@ -66,8 +66,8 @@ StÃ¤rkere `"Ganzes-zu-Teil"-Beziehung`, die Lebenszyklen der `"Teil"-Objekte` hÃ
 ```cs
 public class Auto
 {
-    public string Marke;
-    public string Typ;
+    private string Marke;
+    private string Typ;
     protected uint Kilometerstand;
 
     public string GetMarke()
