@@ -1,7 +1,7 @@
-name: Fehler melden
-description: Erzeugt eine Nachricht zur Behebung des Fehlers
-title: "[BUG]: "
-labels: ["bug", "documentation"]
+name: Ein Thema wünschen
+description: Erzeugt eine Nachricht zur Eingabe eines neuen Themas
+title: "[NEW]: "
+labels: ["proposal", "enhancement", "documentation"]
 projects: AlBuSoft/5
 
 body:
@@ -11,7 +11,7 @@ body:
       label: Thema
 #      description: |
       placeholder: |
-        Das Thema in dem der Fehler ist.
+        Der Name des zu wünschenden Themas.
     validations:
       required: true
 
@@ -21,16 +21,16 @@ body:
       label: Beschreibung
 #      description: |
       placeholder: |
-        Eine konkrete Fehlerbeschreibung.
+        Eine konkrete Beschreibung des Themas.
     validations:
       required: true
 
   - type: textarea
-    id: fix
+    id: documentation
     attributes:
-      label: Lösungsvorschlag
+      label: Dokumentation
 #      description: |
       placeholder: |
-        Eine konkrete Fehlerlösung.
+        Ggf. eine fertige Dokumentation.
     validations:
-      required: true
+      required: false

@@ -1,0 +1,26 @@
+name: Verbesserung Vorschlagen
+description: Erstellt eine Nachricht zur Nachverfolgung einer Verbesserungsanfrage
+title: "[VORSCHLAG]: "
+labels: ["documentation"]
+projects: AlBuSoft/5
+
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Thema
+#      description: |
+      placeholder: |
+        Das Thema für dass etwas vorgeschlagen wird.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschreibung
+#      description: |
+      placeholder: |
+        Eine konkrete Beschreibung des Vorschlags.
+    validations:
+      required: true
